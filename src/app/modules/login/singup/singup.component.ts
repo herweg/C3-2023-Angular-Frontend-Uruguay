@@ -56,9 +56,10 @@ export class SingupComponent {
   googleLogin() {
     this.service.googleLogin()
       .then(response => {
+        if(response){
         this.service.setUserLogged(true)
-        console.log(response)
         this.router.navigate(['/customer'])
+        }
       })
   }
 }

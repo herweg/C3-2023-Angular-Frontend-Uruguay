@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GuardsGuard } from 'src/app/guards.guard';
-import { LoginComponent } from './login.component';
+
+import { TransferHomeComponent } from './transfer-home/transfer-home.component';
 
 const routes: Routes = [
   {
     path: '',
     children: [
-      { path: 'login', component: LoginComponent },
-      { path: '**', redirectTo: 'login' }
+      { path: 'transfer-home', component: TransferHomeComponent },
+      { path: '**', redirectTo: 'transfer-home' }
     ]
   }
 ]
@@ -17,4 +17,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class LoginRoutingModule { }
+export class TransferRoutingModule { }

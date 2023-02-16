@@ -1,0 +1,36 @@
+<div class="container">
+    <div *ngIf="result">
+        <pre>
+            <div class="input-form">
+              <mat-form-field class="input-info">
+                <mat-label>Cuenta N°:</mat-label>
+                <input matInput placeholder="Cuenta N°" value={{result.id}}>
+              </mat-form-field>
+              <mat-form-field class="input-info">
+                <mat-label>Nombre:</mat-label>
+                <input matInput placeholder="Cuenta N°" value={{result.fullName}}>
+              </mat-form-field>
+              <mat-form-field class="input-info">
+                <mat-label>Tipo de documento:</mat-label>
+                <input matInput placeholder="Cuenta N°" value={{result.documentType.name}}>
+              </mat-form-field>
+              <mat-form-field class="input-info">
+                <mat-label>Documento:</mat-label>
+                <input matInput placeholder="Cuenta N°" value={{result.document}}>
+              </mat-form-field>
+              <mat-form-field class="input-info">
+                <mat-label>Telefono:</mat-label>
+                <input matInput placeholder="Cuenta N°" value={{result.phone}}>
+              </mat-form-field>
+              <mat-form-field class="input-info">
+                <mat-label>Email:</mat-label>
+                <input matInput placeholder="Cuenta N°" value={{result.email}}>
+              </mat-form-field>
+              <mat-form-field class="input-info">
+                <mat-label>Contraseña:</mat-label>
+                <input matInput placeholder="Cuenta N°" value={{result.password}}>
+              </mat-form-field>
+            </div>
+        </pre>
+    </div>
+    </div>

@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 
 import { CustomerModel } from 'src/app/interfaces/Customer.interface';
+import { ServicesService } from '../../services/services.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class CustomerService {
 
   //Almacenar la consulta (pedida mas abajo)
   allCustomers: CustomerModel[] = []
-  customerResult: CustomerModel[] = []
+  customerResult!: CustomerModel
+  myCustomer!: CustomerModel
 
   constructor(private http: HttpClient) { }
 
@@ -29,7 +31,7 @@ export class CustomerService {
     id = id.trim().toLowerCase()
     //consulta
     this.http
-      .get<CustomerModel[]>(`${this.url}/info/${id}`)
+      .get<CustomerModel>(`${this.url}/info/${id}`)
       .subscribe(resp => this.customerResult = resp)
   }
 }

@@ -1,9 +1,46 @@
-<div class="container">
-    <h2>Aca se mostraran los datos de mi usuario</h2>
-    <input type="text">
-    <button>Buscar usuario por ID</button>
+<div *ngIf="myCustomer" class="container">
+    <h2>Mi usuario</h2>
+
+    <div class="container">
+        <pre>
+            <div class="input-form">
+              <mat-form-field class="input-info">
+                <mat-label>Cuenta N°:</mat-label>
+                <input matInput placeholder="Cuenta N°" value={{myCustomer.id}}>
+              </mat-form-field>
+              <mat-form-field class="input-info">
+                <mat-label>Nombre:</mat-label>
+                <input matInput placeholder="Cuenta N°" value={{myCustomer.fullName}}>
+              </mat-form-field>
+              <mat-form-field class="input-info">
+                <mat-label>Tipo de documento:</mat-label>
+                <input matInput placeholder="Cuenta N°" value={{myCustomer.documentType.name}}>
+              </mat-form-field>
+              <mat-form-field class="input-info">
+                <mat-label>Documento:</mat-label>
+                <input matInput placeholder="Cuenta N°" value={{myCustomer.document}}>
+              </mat-form-field>
+              <mat-form-field class="input-info">
+                <mat-label>Telefono:</mat-label>
+                <input matInput placeholder="Cuenta N°" value={{myCustomer.phone}}>
+              </mat-form-field>
+              <mat-form-field class="input-info">
+                <mat-label>Email:</mat-label>
+                <input matInput placeholder="Cuenta N°" value={{myCustomer.email}}>
+              </mat-form-field>
+              <mat-form-field class="input-info">
+                <mat-label>Contraseña:</mat-label>
+                <input matInput placeholder="Cuenta N°" value={{myCustomer.password}}>
+              </mat-form-field>
+            </div>
+        </pre>
+    </div>
+    
+    <input type="text" [formControl]="inputId">
+    <button (click)="searchCustomerById()">Buscar usuario por ID</button>
     <button (click)="searchCustomers()">Buscar todos los usuarios (customer)</button>
     <div class="container">
-        <get-customer></get-customer>
+        <get-customer *ngIf="!oneOrMany"></get-customer>
+        <get-one-customer *ngIf="oneOrMany"></get-one-customer>
     </div>
 </div>

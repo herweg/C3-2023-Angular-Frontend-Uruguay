@@ -4,6 +4,7 @@ import { SignInModel } from '../../interfaces/signin.interface';
 import { SignUpModel } from 'src/app/interfaces/signup.interface';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider } from '@angular/fire/auth';
 import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class LoginService {
   private url: string = 'http://localhost:3000/security'
 
   constructor(private http: HttpClient,
-    private auth: Auth) { }
+    private auth: Auth,
+    private router: Router) { }
 
   userLogged: BehaviorSubject<boolean> = new BehaviorSubject(false)
 
@@ -39,18 +41,31 @@ export class LoginService {
   signIn(signIn: SignInModel) {
     this.http
       .post(`${this.url}/signin`, signIn, { responseType: 'text' })
-      .subscribe(token => localStorage.setItem("token", token))
+      .subscribe(token => {
+        if (token) {
+          localStorage.setItem("token", token)
+          this.setUserLogged(true)
+          this.router.navigate(["/customer"])
+        }
+      })
   }
 
   signUp(signUp: SignUpModel) {
     this.http
       .post(`${this.url}/signup`, signUp, { responseType: 'text' })
-      .subscribe(token => localStorage.setItem("token", token))
+      .subscribe(token => {
+        localStorage.setItem("token", token)
+      })
   }
 
   logOut(token: string) {
     this.setUserLogged(false)
     this.http
       .post(`${this.url}/signout/${token}`, { responseType: 'text' })
+      .subscribe(token => {
+        if (token) {
+          localStorage.removeItem("token")
+        }
+      })
   }
 }

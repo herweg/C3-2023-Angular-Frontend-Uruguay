@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '',
     children: [
-      { path: 'deposit-home', component: DepositHomeComponent, canActivate: [GuardsGuard] },
+      { path: 'deposit-home', component: DepositHomeComponent},
       { path: '**', redirectTo: 'deposit-home' }
     ]
   }

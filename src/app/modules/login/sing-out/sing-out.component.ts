@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
+
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'sing-out',

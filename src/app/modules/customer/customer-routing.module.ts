@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: '',
     children: [
-      { path: 'customer-home', component: CustomerHomeComponent, canActivate: [GuardsGuard] },
+      { path: 'customer-home', component: CustomerHomeComponent },
       { path: '**', redirectTo: 'customer-home' }
     ]
   }

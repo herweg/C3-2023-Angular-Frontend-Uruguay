@@ -12,6 +12,6 @@ export class LoginComponent {
   constructor(private globalService: ServicesService) { }
 
   ngDoCheck() {
-    this.globalService.eligeFormmulario()
+    this.globalService.switchInUp()
   }
 }

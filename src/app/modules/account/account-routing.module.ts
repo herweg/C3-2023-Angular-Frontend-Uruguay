@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { GuardsGuard } from 'src/app/guards.guard';
 import { AccountHomeComponent } from './account-home/account-home.component';
 
 const routes: Routes = [
   {
     path: '',
     children: [
-      { path: 'account-home', component: AccountHomeComponent, canActivate: [GuardsGuard] },
+      { path: 'account-home', component: AccountHomeComponent},
       { path: '**', redirectTo: 'account-home' }
     ]
   }
