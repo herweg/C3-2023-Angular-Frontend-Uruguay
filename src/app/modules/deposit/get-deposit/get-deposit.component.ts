@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-get-deposit',
+  selector: 'get-deposit',
   templateUrl: './get-deposit.component.html',
   styleUrls: ['./get-deposit.component.scss']
 })

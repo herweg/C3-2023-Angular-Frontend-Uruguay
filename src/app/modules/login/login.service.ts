@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { SignInModel } from '../../interfaces/signin.interface';
 import { SignUpModel } from 'src/app/interfaces/signup.interface';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider } from '@angular/fire/auth';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,12 @@ export class LoginService {
   constructor(private http: HttpClient,
     private auth: Auth) { }
 
+  userLogged: BehaviorSubject<boolean> = new BehaviorSubject(false)
+
+  setUserLogged(logged: boolean) {
+    this.userLogged.next(logged)
+  }
+
   fireSignUp(email: string, password: string) {
     return createUserWithEmailAndPassword(this.auth, email, password)
   }
@@ -21,7 +28,7 @@ export class LoginService {
     return signInWithEmailAndPassword(this.auth, email, password)
   }
 
-  googleLogin(){
+  googleLogin() {
     return signInWithPopup(this.auth, new GoogleAuthProvider())
   }
 
@@ -41,7 +48,9 @@ export class LoginService {
       .subscribe(token => localStorage.setItem("token", token))
   }
 
-  logOut() {
-
+  logOut(token: string) {
+    this.setUserLogged(false)
+    this.http
+      .post(`${this.url}/signout/${token}`, { responseType: 'text' })
   }
 }

@@ -1,11 +1,13 @@
-<form [formGroup]="depositForm" (ngSubmit)="postDeposit()">
-    <input 
-        type="text" 
-        placeholder="Numero de cuenta"
-        formControlName="id">
-    <input 
-        type="text" 
-        placeholder="Cantidad a depositar"
-        formControlName="amount">
-    <button type="submit">Depositar</button>
-</form>
+<div class="container">
+    <form [formGroup]="depositForm" (ngSubmit)="postDeposit()">
+        <input 
+            type="text" 
+            placeholder="Numero de cuenta"
+            formControlName="id">
+        <input 
+            type="text" 
+            placeholder="Cantidad a depositar"
+            formControlName="amount">
+        <button type="submit">Depositar</button>
+    </form>
+</div>

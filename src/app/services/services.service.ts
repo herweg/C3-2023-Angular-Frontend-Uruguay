@@ -31,31 +31,31 @@ export class ServicesService {
 
   //Variable en localstorage para el login
 
-  ngOnInit(): void {
-    this.defaultLogin()
-  }
+  // ngOnInit(): void {
+  //   this.defaultLogin()
+  // }
 
-  ngDoCheck() {
-    this.switch()
-  }
+  // ngDoCheck() {
+  //   this.switch()
+  // }
 
-  mostrar = localStorage.getItem('logged') === 'true'
+  // mostrar = localStorage.getItem('logged') === 'true'
 
-  switch() {
-    this.mostrar = !this.mostrar
-  }
+  // switch() {
+  //   this.mostrar = !this.mostrar
+  // }
 
-  defaultLogin() {
-    if (!(localStorage.getItem('logged')))
-      localStorage.setItem('logged', 'false')
-  }
+  // defaultLogin() {
+  //   if (!(localStorage.getItem('logged')))
+  //     localStorage.setItem('logged', 'false')
+  // }
 
-  activeLogin() {
-    localStorage.getItem('logged')
-    localStorage.setItem('logged', 'true')
-  }
+  // activeLogin() {
+  //   localStorage.getItem('logged')
+  //   localStorage.setItem('logged', 'true')
+  // }
 
-  logOut() {
-    localStorage.clear()
-  }
+  // logOut() {
+  //   localStorage.clear()
+  // }
 }

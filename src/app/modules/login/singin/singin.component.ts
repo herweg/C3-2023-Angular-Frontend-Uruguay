@@ -34,6 +34,8 @@ export class SinginComponent {
         .then()
         .catch(error => alert("No pudimos encontrar tus credenciales, error:" + error))
       this.service.signIn(form)
+      
+      this.service.setUserLogged(true)
       this.router.navigate(["/customer"])
     }
   }

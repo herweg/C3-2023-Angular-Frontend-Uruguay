@@ -1,16 +1,18 @@
+<div class="container">
 <div *ngFor="let customer of result">
     <pre>
-        id: {{customer.id}}
-            docId: {{customer.documentType.id}}
-            docName: {{customer.documentType.name}}
-            docState: {{customer.documentType.state}}
-        doc: {{customer.document}}
-        name: {{customer.fullName}}
-        email: {{customer.email}}
-        phone: {{customer.phone}}
-        pass: {{customer.password}}
-        avatar: {{customer.avatarUrl}}
-        state: {{customer.state}}
-        deleted: {{customer.daletedAt}}
+        Cuenta N°: {{customer.id}}
+        Nombre: {{customer.fullName}}
+            Tipo de documento: {{customer.documentType.name}}
+            Documento: {{customer.document}}
+        Telefono: {{customer.phone}}
+        Email: {{customer.email}}
+        Contraseña: {{customer.password}}
     </pre>
 </div>
+</div>
+            <!-- docId: {{customer.documentType.id}} -->
+            <!-- docState: {{customer.documentType.state}} -->
+        <!-- avatar: {{customer.avatarUrl}} -->
+        <!-- state: {{customer.state}} -->
+        <!-- deleted: {{customer.daletedAt}} -->

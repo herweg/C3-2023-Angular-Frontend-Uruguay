@@ -15,6 +15,8 @@ export class SingOutComponent {
   logOut() {
     this.service.fireLogOut()
       .then(() => {
+        this.service.setUserLogged(false)
+        localStorage.removeItem("token")
         this.router.navigate(['/login'])
       })
       .catch(e => console.log(e))

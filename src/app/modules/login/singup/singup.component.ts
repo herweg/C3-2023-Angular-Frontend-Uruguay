@@ -42,6 +42,7 @@ export class SingupComponent {
       //Register in firebase
       this.service.fireSignUp(form.email, form.password)
         .then(response => {
+          this.service.setUserLogged(true)
           console.log(response)
         })
         .catch(error => alert("Algo no esta bien" + error))
@@ -55,6 +56,7 @@ export class SingupComponent {
   googleLogin() {
     this.service.googleLogin()
       .then(response => {
+        this.service.setUserLogged(true)
         console.log(response)
         this.router.navigate(['/customer'])
       })
