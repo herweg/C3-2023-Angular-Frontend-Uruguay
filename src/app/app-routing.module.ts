@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './modules/login/login.component';
+import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 
+import { LoginComponent } from './modules/login/login.component';
 import { NotfoundComponent } from './shared/notfound/notfound.component';
+import { CustomerModule } from './modules/customer/customer.module';
 
 const routes: Routes = [
 
@@ -18,7 +20,8 @@ const routes: Routes = [
   {
     path: 'customer',
     loadChildren: () => import('../app/modules/customer/customer.module')
-      .then(m => m.CustomerModule)
+      .then(m => m.CustomerModule),
+    //...canActivate(() => redirectUnauthorizedTo(['/login']))
   },
   {
     path: 'account',

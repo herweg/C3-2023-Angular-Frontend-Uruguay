@@ -9,6 +9,9 @@ import { SharedModule } from './shared/shared.module';
 import { LoginModule } from './modules/login/login-module.module';
 import { MaterialModule } from './material/material.module';
 import { EjercicioComponent } from './prog-functional/ejercicio/ejercicio.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { EjercicioComponent } from './prog-functional/ejercicio/ejercicio.compon
     MaterialModule,
     SharedModule,
     LoginModule,
-    HttpClientModule
+    HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth())
   ],
   providers: [],
   bootstrap: [AppComponent]

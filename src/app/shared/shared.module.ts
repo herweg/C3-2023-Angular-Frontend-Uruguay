@@ -5,6 +5,7 @@ import { MaterialModule } from '../material/material.module';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { LoginModule } from '../modules/login/login-module.module';
 
 @NgModule({
     declarations: [
@@ -20,6 +21,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
         CommonModule,
         MaterialModule,
         RouterModule,
+        LoginModule
     ]
 })
 export class SharedModule { }

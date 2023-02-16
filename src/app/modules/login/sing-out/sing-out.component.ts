@@ -1,10 +1,23 @@
 import { Component } from '@angular/core';
+import { LoginService } from '../login.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-sing-out',
+  selector: 'sing-out',
   templateUrl: './sing-out.component.html',
   styleUrls: ['./sing-out.component.scss']
 })
 export class SingOutComponent {
+  constructor(
+    private service: LoginService,
+    private router: Router) { }
+
+  logOut() {
+    this.service.fireLogOut()
+      .then(() => {
+        this.router.navigate(['/login'])
+      })
+      .catch(e => console.log(e))
+  }
 
 }

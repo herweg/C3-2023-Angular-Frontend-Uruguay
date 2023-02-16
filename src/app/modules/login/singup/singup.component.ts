@@ -11,11 +11,6 @@ import { LoginService } from '../login.service';
   styleUrls: ['./singup.component.scss']
 })
 export class SingupComponent {
-  constructor(
-    protected generalService: ServicesService,
-    private service: LoginService,
-    private fb: FormBuilder,
-    private router: Router) { }
 
   signUpForm: FormGroup = this.fb.group({
     document: ['', Validators.required, Validators.minLength(6)],
@@ -26,6 +21,12 @@ export class SingupComponent {
     accountTypeId: ['', Validators.required],
     documentTypeId: ['', Validators.required],
   })
+
+  constructor(
+    protected generalService: ServicesService,
+    private service: LoginService,
+    private fb: FormBuilder,
+    private router: Router) { }
 
   postSignUp() {
     if (this.signUpForm) {
@@ -38,8 +39,24 @@ export class SingupComponent {
         accountTypeId: this.signUpForm.controls["accountTypeId"].value,
         documentTypeId: this.signUpForm.controls["documentTypeId"].value,
       }
+      //Register in firebase
+      this.service.fireSignUp(form.email, form.password)
+        .then(response => {
+          console.log(response)
+        })
+        .catch(error => alert("Algo no esta bien" + error))
+      //Register in backend
       this.service.signUp(form)
+      //Redirect
       this.router.navigate(["/customer"])
     }
+  }
+
+  googleLogin() {
+    this.service.googleLogin()
+      .then(response => {
+        console.log(response)
+        this.router.navigate(['/customer'])
+      })
   }
 }

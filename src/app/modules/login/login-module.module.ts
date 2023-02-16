@@ -27,6 +27,7 @@ import { LoginRoutingModule } from './login-routing.module';
   exports:[
     SinginComponent,
     SingupComponent,
+    SingOutComponent,
     LoginComponent
   ]
 })

@@ -1,15 +1,18 @@
 <section class="form-register" *ngIf="generalService.switchSignUp">
     <h4>Sign Up</h4>
     <form [formGroup]="signUpForm" (ngSubmit)="postSignUp()">
-        <input formControlName="fullName" class="controls" type="text" id="fullName" name="fullName" placeholder="Nombre Completo">
+        <input formControlName="fullName" class="controls" type="text" id="fullName" name="fullName"
+            placeholder="Nombre Completo">
         <input formControlName="phone" class="controls" type="text" id="phone" name="phone" placeholder="Telefono">
         <input formControlName="email" class="controls" type="email" id="email" name="email" placeholder="Correo">
-        <input formControlName="password" class="controls" type="password" id="password" name="password" placeholder="Contraseña">
+        <input formControlName="password" class="controls" type="password" id="password" name="password"
+            placeholder="Contraseña">
         <select formControlName="documentTypeId" name="documentTypeId" id="documentTypeId">
             <option value="Cedula">Cedula</option>
             <option value="Pasaporte">Pasaporte</option>
         </select>
-        <input formControlName="document" class="controls" type="text" id="document" name="document" placeholder="Numero de documento">
+        <input formControlName="document" class="controls" type="text" id="document" name="document"
+            placeholder="Numero de documento">
         <select formControlName="accountTypeId" name="accountTypeId" id="accountTypeId">
             <option value="Caja de ahorros">Caja de ahorros</option>
             <option value="Cuenta Corriente">Cuenta corriente</option>
@@ -19,4 +22,54 @@
         <p>Ya tienes una cuenta?</p>
         <button class="boton" type="submit" (click)="(generalService.valorForm = 1)">Sign In</button>
     </form>
+    <button class="boton" (click)="googleLogin()">Loguea con G</button>
 </section>
+
+
+<!-- <section class="form-register" *ngIf="generalService.switchSignUp">
+    <h4>Sign Up</h4>
+    <mat-form-field [formGroup]="signUpForm" (ngSubmit)="postSignUp()">
+        <mat-label>Nombre Completo</mat-label>
+        <input matInput formControlName="fullName" class="controls" type="text" id="fullName" name="fullName"
+            placeholder="Nombre Completo">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Telefono</mat-label>
+        <input matInput formControlName="phone" class="controls" type="text" id="phone" name="phone"
+            placeholder="Telefono">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" class="controls" type="email" id="email" name="email"
+            placeholder="Correo">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Contraseña</mat-label>
+        <input matInput formControlName="password" class="controls" type="password" id="password" name="password"
+            placeholder="Contraseña">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Tipo de documento</mat-label>
+        <mat-select formControlName="documentTypeId" name="documentTypeId" id="documentTypeId">
+            <mat-option value="Cedula">Cedula</mat-option>
+            <mat-option value="Pasaporte">Pasaporte</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Contraseña</mat-label>
+        <input formControlName="document" class="controls" type="text" id="document" name="document"
+            placeholder="Numero de documento">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Tipo de documento</mat-label>
+        <mat-select formControlName="accountTypeId" name="accountTypeId" id="accountTypeId">
+            <mat-option value="Caja de ahorros">Caja de ahorros</mat-option>
+            <mat-option value="Cuenta Corriente">Cuenta corriente</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <button class="boton" type="submit" (click)="generalService.activeLogin()">Sign Up!</button>
+        <p>Ya tienes una cuenta?</p>
+        <button class="boton" type="submit" (click)="(generalService.valorForm = 1)">Sign In</button>
+    </mat-form-field>
+</section> -->
