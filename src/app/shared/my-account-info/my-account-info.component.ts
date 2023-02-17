@@ -15,13 +15,11 @@ export class MyAccountInfoComponent implements OnInit {
   myCustomer!: CustomerModel
 
   ngOnInit(): void {
-
     this.generalService.getUserByEmail()
       .subscribe(customer => {
         console.log(customer);
         this.myCustomer = customer
       })
-
     console.log(this.myCustomer)
   }
   

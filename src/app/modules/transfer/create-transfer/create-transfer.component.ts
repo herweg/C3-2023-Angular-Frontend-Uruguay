@@ -6,7 +6,6 @@ import { AccountModel } from '../../../interfaces/account.interface';
 import { TransferModel } from '../../../interfaces/transfer.interface';
 import { TransferService } from '../transfer.service';
 
-
 @Component({
   selector: 'create-transfer',
   templateUrl: './create-transfer.component.html',
@@ -31,9 +30,6 @@ export class CreateTransferComponent {
     })
   }
 
-
-
-
   //Al cargar el modulo se ejecuta, popula myCustomer y luego
   //ejecuta getMyAccounts() (definida luego)
   ngOnInit(): void {
@@ -57,10 +53,7 @@ export class CreateTransferComponent {
 
   //Armar un TransferModel para enviar
   postTransfer() {
-    console.log("clicked");
     console.log(this.transferForm.value);
-    console.log(this.transferForm.controls)
-
 
     if (this.transferForm.valid) {
       const form: TransferModel = {
