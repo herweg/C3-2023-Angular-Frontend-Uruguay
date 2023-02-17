@@ -5,6 +5,7 @@ import { CustomerModel } from '../interfaces/Customer.interface';
 import { TokenDecoded } from '../interfaces/tokendecoded.interface';
 import { AccountModel } from '../interfaces/account.interface';
 import { Observable } from 'rxjs';
+import { UpdateCustomer } from '../interfaces/updatecustomer.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -38,7 +39,6 @@ export class ServicesService {
     }
   }
 
-
   decodedToken() {
     const token = localStorage.getItem("token")
     if (token) {
@@ -62,5 +62,10 @@ export class ServicesService {
   getAccByCustomer(customerId: string): Observable<AccountModel[]> {
     return this.http
       .get<AccountModel[]>(`${this.url}account/getbycustomer/${customerId}`)
+  }
+
+  updateCustomer(id: string, customer: UpdateCustomer): Observable<UpdateCustomer> {
+    return this.http
+      .patch<UpdateCustomer>(`${this.url}customer/update/${id}`, customer)
   }
 }

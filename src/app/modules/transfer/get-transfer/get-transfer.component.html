@@ -1,1 +1,39 @@
-<p>get-transfer works!</p>
+<div class="container">
+    <h2>Obtener historial de transferencias</h2>
+    <form [formGroup]="transferHistoryForm">
+        <mat-form-field class="input-info">
+            <mat-label>Numero de Cuenta:</mat-label>
+            <input 
+            matInput 
+            placeholder="Numero de Cuenta" 
+            formControlName="accountId">
+          </mat-form-field>
+          <mat-form-field class="input-info">
+            <mat-label>Offset:</mat-label>
+            <input 
+            matInput 
+            placeholder="Offset" 
+            formControlName="offset">
+          </mat-form-field>
+          <mat-form-field class="input-info">
+            <mat-label>Limit:</mat-label>
+            <input 
+            matInput 
+            placeholder="Limit" 
+            formControlName="limit">
+          </mat-form-field>
+        <button (click)="getTransfer()" mat-button color="primary">Obtener historial</button>
+    </form>
+    <mat-list *ngIf="transferHistory.length > 0">
+        <p>Debug: transferHistory = {{ transferHistory | json }}</p>
+
+        <mat-list-item *ngFor="let transfer of transferHistory">
+            <h3 matLine>Transfer ID: {{ transfer.id }}</h3>
+            <p matLine>De: {{ transfer.outcome.customer.fullName }}</p>
+            <p matLine>Para: {{ transfer.income.customer.fullName }}</p>
+            <p matLine>Monto: {{ transfer.amount }}</p>
+            <p matLine>Razon: {{ transfer.reason }}</p>
+            <p matLine>Fecha: {{ transfer.dateTime | date }}</p>
+        </mat-list-item>
+    </mat-list>
+</div>

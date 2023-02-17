@@ -8,15 +8,15 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { LoginModule } from './modules/login/login-module.module';
 import { MaterialModule } from './material/material.module';
-import { EjercicioComponent } from './prog-functional/ejercicio/ejercicio.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { MatListModule } from '@angular/material/list';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    EjercicioComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,6 +24,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     BrowserAnimationsModule,
 
     MaterialModule,
+    MatListModule,
     SharedModule,
     LoginModule,
     HttpClientModule,

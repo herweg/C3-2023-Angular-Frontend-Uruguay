@@ -1,36 +1,65 @@
 <div class="myaccount">
     <div *ngIf="myCustomer">
         <pre>
-            <div class="input-form">
+            <form class="input-form" [formGroup]="customerForm">
               <mat-form-field class="input-info">
                 <mat-label>Cuenta N°:</mat-label>
-                <input matInput placeholder="Cuenta N°" value={{myCustomer.id}}>
+                <input 
+                matInput 
+                placeholder="Cuenta N°" 
+                formControlName="id"
+                [value]="myCustomer.id">
               </mat-form-field>
               <mat-form-field class="input-info">
                 <mat-label>Nombre:</mat-label>
-                <input matInput placeholder="Cuenta N°" value={{myCustomer.fullName}}>
+                <input 
+                matInput 
+                placeholder="Nombre" 
+                formControlName="fullName"
+                [value]="myCustomer.fullName">
               </mat-form-field>
               <mat-form-field class="input-info">
                 <mat-label>Tipo de documento:</mat-label>
-                <input matInput placeholder="Cuenta N°" value={{myCustomer.documentType.name}}>
+                <input 
+                matInput 
+                placeholder="Tipo de documento" 
+                formControlName="documentType"
+                [value]="myCustomer.documentType.id">
               </mat-form-field>
               <mat-form-field class="input-info">
                 <mat-label>Documento:</mat-label>
-                <input matInput placeholder="Cuenta N°" value={{myCustomer.document}}>
+                <input 
+                matInput 
+                placeholder="Documento" 
+                formControlName="document"
+                [value]="myCustomer.document">
               </mat-form-field>
               <mat-form-field class="input-info">
                 <mat-label>Telefono:</mat-label>
-                <input matInput placeholder="Cuenta N°" value={{myCustomer.phone}}>
+                <input 
+                matInput 
+                placeholder="Telefono" 
+                formControlName="phone"
+                [value]="myCustomer.phone">
               </mat-form-field>
               <mat-form-field class="input-info">
                 <mat-label>Email:</mat-label>
-                <input matInput placeholder="Cuenta N°" value={{myCustomer.email}}>
+                <input 
+                matInput 
+                placeholder="Email" 
+                formControlName="email"
+                [value]="myCustomer.email">
               </mat-form-field>
               <mat-form-field class="input-info">
                 <mat-label>Contraseña:</mat-label>
-                <input matInput placeholder="Cuenta N°" value={{myCustomer.password}}>
+                <input 
+                matInput 
+                placeholder="Contraseña" 
+                formControlName="password"
+                [value]="myCustomer.password">
               </mat-form-field>
-            </div>
+              <button mat-raised-button color="primary" (click)="updateCustomer()">Update</button>
+          </form>
         </pre>
     </div>
 </div>

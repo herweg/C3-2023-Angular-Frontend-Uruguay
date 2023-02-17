@@ -7,6 +7,7 @@ import { TransferRoutingModule } from './transfer-routing.module';
 import { MaterialModule } from '../../material/material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedModule } from "../../shared/shared.module";
+import { MatListModule } from '@angular/material/list';
 
 
 
@@ -21,6 +22,7 @@ import { SharedModule } from "../../shared/shared.module";
         TransferRoutingModule,
         FormsModule,
         MaterialModule,
+        MatListModule,
         ReactiveFormsModule,
         SharedModule
     ]
