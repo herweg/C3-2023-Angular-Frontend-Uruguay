@@ -25,4 +25,8 @@ export class AccountHomeComponent {
     this.service.getAccountById(this.inputValue)
     this.inputValue = ''
   }
+
+  changeAccType(){
+    
+  }
 }

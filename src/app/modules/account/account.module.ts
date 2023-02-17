@@ -6,6 +6,7 @@ import { AccountRoutingModule } from './account-routing.module';
 import { FormsModule } from '@angular/forms';
 import { GetSingleAccountComponent } from './get-single-account/get-single-account.component';
 import { SharedModule } from "../../shared/shared.module";
+import { MaterialModule } from 'src/app/material/material.module';
 
 
 
@@ -19,6 +20,7 @@ import { SharedModule } from "../../shared/shared.module";
         CommonModule,
         AccountRoutingModule,
         FormsModule,
+        MaterialModule,
         SharedModule
     ]
 })

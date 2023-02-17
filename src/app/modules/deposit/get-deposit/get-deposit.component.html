@@ -1,1 +1,52 @@
-<p>get-deposit works!</p>
+<div class="container">
+    <h2>Obtener historial de depositos</h2>
+    <form [formGroup]="depositHistoryForm">
+        <mat-form-field class="input-info">
+            <mat-label>Numero de Cuenta:</mat-label>
+            <input 
+            matInput 
+            placeholder="Numero de Cuenta" 
+            formControlName="depositId">
+          </mat-form-field>
+          <mat-form-field class="input-info">
+            <mat-label>Offset:</mat-label>
+            <input 
+            matInput 
+            placeholder="Offset" 
+            formControlName="offset">
+          </mat-form-field>
+          <mat-form-field class="input-info">
+            <mat-label>Limit:</mat-label>
+            <input 
+            matInput 
+            placeholder="Limit" 
+            formControlName="limit">
+          </mat-form-field>
+        <button (click)="getTransfer()" mat-button color="primary">Obtener historial</button>
+    </form>
+    <!-- <mat-list *ngIf="depositHistory.length > 0">
+        <p>Debug: depositHistory = {{ depositHistory | json }}</p> 
+
+        <mat-list-item *ngFor="let deposit of depositHistory">
+            <h3 matLine>Transfer ID: {{ deposit.id }}</h3>
+            <p matLine>Cuenta: {{ deposit.account.customer.fullName }}</p>
+            <p matLine>Monto: {{ deposit.amount }}</p>
+            <p matLine>Fecha: {{ deposit.dateTime | date }}</p>
+        </mat-list-item>
+    </mat-list> -->
+
+    <table>
+      <tr>
+        <th>ID:</th>
+        <th>Cuenta:</th>
+        <th>Monto:</th>
+        <th>Fecha:</th>
+      </tr>
+      <tr *ngFor="let deposit of depositHistory">
+        <td>{{ deposit.id }}</td>
+        <td>{{ deposit.account.id }}</td>
+        <td>{{ deposit.amount }}</td>
+        <td>{{ deposit.dateTime | date }}</td>
+      </tr>
+    </table>
+</div>

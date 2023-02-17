@@ -1,10 +1,10 @@
 <section class="form-register" *ngIf="generalService.switchSignUp">
     <h4>Sign Up</h4>
-    <form [formGroup]="signUpForm" (ngSubmit)="postSignUp()">
-        <input formControlName="fullName" class="controls" type="text" id="fullName" name="fullName"
+    <form [formGroup]="signUpForm" >
+        <input [(ngModel)]="fullName" formControlName="fullName" class="controls" type="text" id="fullName" name="fullName"
             placeholder="Nombre Completo">
-        <input formControlName="phone" class="controls" type="text" id="phone" name="phone" placeholder="Telefono">
-        <input formControlName="email" class="controls" type="email" id="email" name="email" placeholder="Correo">
+        <input [(ngModel)]="phone" formControlName="phone" class="controls" type="text" id="phone" name="phone" placeholder="Telefono">
+        <input [(ngModel)]="email" formControlName="email" class="controls" type="email" id="email" name="email" placeholder="Correo">
         <input formControlName="password" class="controls" type="password" id="password" name="password"
             placeholder="Contraseña">
         <select formControlName="documentTypeId" name="documentTypeId" id="documentTypeId">
@@ -18,9 +18,9 @@
             <option value="Cuenta Corriente">Cuenta corriente</option>
         </select>
 
-        <button class="boton" type="submit" >Sign Up!</button>
+        <button class="boton" type="submit" (click)="postSignUp()" >Sign Up!</button>
         <p>Ya tienes una cuenta?</p>
-        <button class="boton" type="submit" (click)="(generalService.valorForm = 1)">Sign In</button>
+        <button class="boton" (click)="(generalService.valorForm = 1)">Sign In</button>
     </form>
     <button class="boton" (click)="googleLogin()">Loguea con G</button>
 </section>

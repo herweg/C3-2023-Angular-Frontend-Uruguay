@@ -5,6 +5,7 @@ import { SignUpModel } from 'src/app/interfaces/signup.interface';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider } from '@angular/fire/auth';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
+import { FireSignIn } from 'src/app/interfaces/firesignin.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -56,6 +57,8 @@ export class LoginService {
       .subscribe(token => {
         localStorage.setItem("token", token)
         this.setUserLogged(true)
+        //Redirect
+        this.router.navigate(["/customer"])
       })
   }
 
@@ -67,6 +70,17 @@ export class LoginService {
         if (token) {
           localStorage.removeItem("token")
           this.setUserLogged(false)
+        }
+      })
+  }
+
+  checkByEmail(email: string) {
+    return this.http.post(`${this.url}/fire`, { email: email }, { responseType: 'text' })
+      .subscribe(response => {
+        if (response) {
+          localStorage.setItem('token', response)
+          this.setUserLogged(true)
+          this.router.navigate(['/customer'])
         }
       })
   }

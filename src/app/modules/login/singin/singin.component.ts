@@ -35,16 +35,11 @@ export class SinginComponent {
   }
 
   postSignInFire() {
-    if (this.signInForm.controls["email"].value && this.signInForm.controls["password"].value) {
-      const form: SignInModel = {
-        email: this.signInForm.controls["email"].value,
-        password: this.signInForm.controls["password"].value
-      }
-      this.service.fireSignIn(form.email, form.password)
-        .catch(error => alert("No pudimos encontrar tus credenciales, error:" + error))
-
-      this.service.setUserLogged(true)
-      this.router.navigate(["/customer"])
-    }
+    this.service.googleLogin()
+      .then(response => {
+        if (response.user.email) {
+          this.service.checkByEmail(response.user.email)
+        }
+      })
   }
 }

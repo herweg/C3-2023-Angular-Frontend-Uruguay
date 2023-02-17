@@ -4,9 +4,15 @@
 </div>
 
 <div class="container">
-    <input type="text" [formControl]="inputId">
-    <button (click)="searchCustomerById()">Buscar usuario por ID</button>
-    <button (click)="searchCustomers()">Buscar todos los usuarios (customer)</button>
+    <mat-form-field class="input-info">
+        <mat-label>Cuenta:</mat-label>
+        <input 
+        matInput 
+        placeholder="Ej: 123456789" 
+        [formControl]="inputId">
+      </mat-form-field>
+    <button mat-raised-button color="primary" (click)="searchCustomerById()">Buscar usuario por ID</button>
+    <button mat-raised-button color="primary" (click)="searchCustomers()">Buscar todos los usuarios (customer)</button>
     <div class="container">
         <get-customer *ngIf="!oneOrMany"></get-customer>
         <get-one-customer *ngIf="oneOrMany"></get-one-customer>

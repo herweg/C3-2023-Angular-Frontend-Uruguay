@@ -45,7 +45,8 @@ export class GetTransferComponent {
         this.transferHistory = transfers
         this.cdRef.detectChanges()
 
-        console.log("transferhistory", this.transferHistory)
+        console.log("transferhistory1", this.transferHistory)
       })
+      console.log("transferhistory2", this.transferHistory)
   }
 }

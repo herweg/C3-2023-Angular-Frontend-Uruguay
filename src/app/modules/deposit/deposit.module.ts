@@ -6,6 +6,8 @@ import { PostDepositComponent } from './post-deposit/post-deposit.component';
 import { DepositRoutingModule } from './deposit-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from "../../shared/shared.module";
+import { MaterialModule } from 'src/app/material/material.module';
+import { MatListModule } from '@angular/material/list';
 
 
 
@@ -20,7 +22,9 @@ import { SharedModule } from "../../shared/shared.module";
         DepositRoutingModule,
         FormsModule,
         ReactiveFormsModule,
-        SharedModule
+        SharedModule,
+        MaterialModule,
+        MatListModule
     ]
 })
 export class DepositModule { }

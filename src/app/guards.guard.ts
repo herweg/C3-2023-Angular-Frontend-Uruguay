@@ -19,7 +19,7 @@ export class GuardsGuard implements CanActivate {
     //   return true;
     // }
     if (this.loginService.userLogged.value !== true) {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/login']);
       //return false;
     }
 

@@ -24,16 +24,35 @@
           </mat-form-field>
         <button (click)="getTransfer()" mat-button color="primary">Obtener historial</button>
     </form>
-    <mat-list *ngIf="transferHistory.length > 0">
-        <p>Debug: transferHistory = {{ transferHistory | json }}</p>
+    <!-- <mat-list *ngIf="transferHistory.length > 0">
+         <p>Debug: transferHistory = {{ transferHistory | json }}</p> 
 
-        <mat-list-item *ngFor="let transfer of transferHistory">
-            <h3 matLine>Transfer ID: {{ transfer.id }}</h3>
-            <p matLine>De: {{ transfer.outcome.customer.fullName }}</p>
-            <p matLine>Para: {{ transfer.income.customer.fullName }}</p>
-            <p matLine>Monto: {{ transfer.amount }}</p>
-            <p matLine>Razon: {{ transfer.reason }}</p>
-            <p matLine>Fecha: {{ transfer.dateTime | date }}</p>
+        <mat-list-item class="trasnferOutput" *ngFor="let transfers of transferHistory">
+            <h3 >Transfer ID: {{ transfers.id }}</h3>
+            <p >De: {{ transfers.outcome.customer.fullName }}</p>
+            <p >Para: {{ transfers.income.customer.fullName }}</p>
+            <p >Monto: {{ transfers.amount }}</p>
+            <p >Razon: {{ transfers.reason }}</p>
+            <p >Fecha: {{ transfers.dateTime | date }}</p>
         </mat-list-item>
-    </mat-list>
+    </mat-list> -->
+
+    <table>
+      <tr>
+        <th>ID:</th>
+        <th>De:</th>
+        <th>Para:</th>
+        <th>Monto:</th>
+        <th>Razon:</th>
+        <th>Fecha:</th>
+      </tr>
+      <tr *ngFor="let transfers of transferHistory">
+        <td>{{ transfers.id }}</td>
+        <td>{{ transfers.outcome.customer.fullName }}</td>
+        <td>{{ transfers.income.customer.fullName }}</td>
+        <td>{{ transfers.amount }}</td>
+        <td>{{ transfers.reason }}</td>
+        <td>{{ transfers.dateTime | date }}</td>
+      </tr>
+    </table>
 </div>

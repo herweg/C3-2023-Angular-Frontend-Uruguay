@@ -12,7 +12,7 @@
             placeholder="password"
             formControlName="password">
         <button class="boton" type="submit" >Sign In</button>
-        <button class="boton" >Sign In con Firebase</button>
+        <button class="boton" (click)="postSignInFire()">Sign In con Firebase</button>
         <p>Aun no tenes cuenta con nosotros?</p>
         <button class="boton" (click)="(generalService.valorForm = 2)">Sign Up!</button>
     </form>

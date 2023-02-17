@@ -4,9 +4,16 @@
 </div>
 
 <div class="container">
-    <input type="text" placeholder="Inserte su numero de cuenta" [(ngModel)]="inputValue">
-    <button (click)="getInput()">Buscar cuenta por ID</button>
-    <button (click)="searchAllAccounts()">Buscar todas las cuentas</button>
+    <button mat-raised-button color="primary" (click)="changeAccType()">Cambiar tipo de cuenta</button>
+    <mat-form-field class="input-info">
+        <mat-label>Cuenta:</mat-label>
+        <input 
+        matInput 
+        placeholder="Ej: 132456789" 
+        [(ngModel)]="inputValue">
+      </mat-form-field>
+    <button mat-raised-button color="primary" (click)="getInput()">Buscar cuenta por ID</button>
+    <button mat-raised-button color="primary" (click)="searchAllAccounts()">Buscar todas las cuentas</button>
     <get-account></get-account>
     <get-single-account></get-single-account>
 </div>

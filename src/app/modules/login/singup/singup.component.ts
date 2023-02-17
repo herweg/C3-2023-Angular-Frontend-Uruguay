@@ -12,12 +12,16 @@ import { LoginService } from '../login.service';
 })
 export class SingupComponent {
 
+  email = ''
+  fullName = ''
+  phone = ''
+
   signUpForm: FormGroup = this.fb.group({
-    document: ['', Validators.required, Validators.minLength(6)],
+    document: ['', [Validators.required, Validators.minLength(6)]],
     fullName: ['', Validators.required],
-    email: ['', Validators.required, Validators.email],
-    phone: ['', Validators.required, Validators.minLength(9)],
-    password: ['', Validators.required, Validators.minLength(8)],
+    email: ['', [Validators.required, Validators.email]],
+    phone: ['', [Validators.required, Validators.minLength(9)]],
+    password: ['', [Validators.required, Validators.minLength(8)]],
     accountTypeId: ['', Validators.required],
     documentTypeId: ['', Validators.required],
   })
@@ -45,21 +49,19 @@ export class SingupComponent {
           this.service.setUserLogged(true)
           console.log(response)
         })
-        .catch(error => alert("Algo no esta bien" + error))
+        .catch(error => alert("Login error: " + error))
       //Register in backend
       this.service.signUp(form)
-      //Redirect
-      this.router.navigate(["/customer"])
     }
   }
 
   googleLogin() {
     this.service.googleLogin()
       .then(response => {
-        if(response){
-        this.service.setUserLogged(true)
-        this.router.navigate(['/customer'])
-        }
+        if (response.user.email) this.email = response.user.email
+        if (response.user.displayName) this.fullName = response.user.displayName
+        if (response.user.phoneNumber) this.phone = response.user.phoneNumber
       })
   }
 }
+
