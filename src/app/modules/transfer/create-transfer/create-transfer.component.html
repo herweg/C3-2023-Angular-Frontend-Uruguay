@@ -1,1 +1,30 @@
-<p>create-transfer works!</p>
+<div class="container">
+    <h2>Crea una transferencia</h2>
+    <form [formGroup]="transferForm">
+        <mat-form-field class="form-input">
+            <mat-label>Cuenta a transferir</mat-label>
+            <input 
+                matInput 
+                formControlName="income" 
+                placeholder="ej: 123456789" 
+                value="">
+        </mat-form-field>
+        <mat-form-field class="form-input">
+            <mat-label>Monto (en $UY)</mat-label>
+            <input 
+                matInput 
+                formControlName="amount" 
+                placeholder="ej: 500" 
+             value="">
+        </mat-form-field>
+        <mat-form-field class="form-input">
+            <mat-label>Razon</mat-label>
+            <input 
+                matInput 
+                formControlName="reason" 
+                placeholder="ej: Deuda de contribucion" 
+                value="">
+        </mat-form-field>
+        <button (click)="postTransfer()" mat-button color="warn">Transferir!</button>
+    </form>
+</div>

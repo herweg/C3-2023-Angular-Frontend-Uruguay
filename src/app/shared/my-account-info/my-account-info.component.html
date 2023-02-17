@@ -1,0 +1,36 @@
+<div class="myaccount">
+    <div *ngIf="myCustomer">
+        <pre>
+            <div class="input-form">
+              <mat-form-field class="input-info">
+                <mat-label>Cuenta N°:</mat-label>
+                <input matInput placeholder="Cuenta N°" value={{myCustomer.id}}>
+              </mat-form-field>
+              <mat-form-field class="input-info">
+                <mat-label>Nombre:</mat-label>
+                <input matInput placeholder="Cuenta N°" value={{myCustomer.fullName}}>
+              </mat-form-field>
+              <mat-form-field class="input-info">
+                <mat-label>Tipo de documento:</mat-label>
+                <input matInput placeholder="Cuenta N°" value={{myCustomer.documentType.name}}>
+              </mat-form-field>
+              <mat-form-field class="input-info">
+                <mat-label>Documento:</mat-label>
+                <input matInput placeholder="Cuenta N°" value={{myCustomer.document}}>
+              </mat-form-field>
+              <mat-form-field class="input-info">
+                <mat-label>Telefono:</mat-label>
+                <input matInput placeholder="Cuenta N°" value={{myCustomer.phone}}>
+              </mat-form-field>
+              <mat-form-field class="input-info">
+                <mat-label>Email:</mat-label>
+                <input matInput placeholder="Cuenta N°" value={{myCustomer.email}}>
+              </mat-form-field>
+              <mat-form-field class="input-info">
+                <mat-label>Contraseña:</mat-label>
+                <input matInput placeholder="Cuenta N°" value={{myCustomer.password}}>
+              </mat-form-field>
+            </div>
+        </pre>
+    </div>
+</div>

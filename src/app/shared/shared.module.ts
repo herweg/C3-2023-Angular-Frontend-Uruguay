@@ -6,22 +6,28 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { LoginModule } from '../modules/login/login-module.module';
+import { MyAccountInfoComponent } from './my-account-info/my-account-info.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
         ToolbarComponent,
         FooterComponent,
-        NotfoundComponent
+        NotfoundComponent,
+        MyAccountInfoComponent
     ],
     exports: [
         ToolbarComponent,
         FooterComponent,
+        MyAccountInfoComponent
     ],
     imports: [
         CommonModule,
         MaterialModule,
         RouterModule,
-        LoginModule
+        LoginModule,
+        FormsModule,
+        ReactiveFormsModule
     ]
 })
 export class SharedModule { }

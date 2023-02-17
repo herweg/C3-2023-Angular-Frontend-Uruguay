@@ -1,33 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { CustomerService } from '../customer.service';
 import { ServicesService } from '../../../services/services.service';
-import { CustomerModel } from '../../../interfaces/Customer.interface';
+import { CustomerModel } from 'src/app/interfaces/Customer.interface';
 
 @Component({
   selector: 'customer-home',
   templateUrl: './customer-home.component.html',
   styleUrls: ['./customer-home.component.scss']
 })
-export class CustomerHomeComponent implements OnInit {
+export class CustomerHomeComponent {
 
   constructor(private service: CustomerService,
     private generalService: ServicesService) { }
 
-  ngOnInit(): void {
-
-    this.generalService.getUserByEmail()
-      .subscribe(customer => {
-        console.log(customer);
-
-        this.myCustomer = customer
-      })
-
-    console.log(this.myCustomer)
-  }
 
   inputId = new FormControl('')
   myCustomer!: CustomerModel
+
   oneOrMany: boolean = true
 
   searchCustomers() {

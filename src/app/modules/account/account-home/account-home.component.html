@@ -1,8 +1,12 @@
 <div class="container">
     <h2>Mi cuenta</h2>
+    <my-account-info></my-account-info>
+</div>
+
+<div class="container">
     <input type="text" placeholder="Inserte su numero de cuenta" [(ngModel)]="inputValue">
     <button (click)="getInput()">Buscar cuenta por ID</button>
     <button (click)="searchAllAccounts()">Buscar todas las cuentas</button>
-        <get-account></get-account>
+    <get-account></get-account>
     <get-single-account></get-single-account>
 </div>

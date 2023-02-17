@@ -6,21 +6,23 @@ import { TransferHomeComponent } from './transfer-home/transfer-home.component';
 import { TransferRoutingModule } from './transfer-routing.module';
 import { MaterialModule } from '../../material/material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { SharedModule } from "../../shared/shared.module";
 
 
 
 @NgModule({
-  declarations: [
-    CreateTransferComponent,
-    GetTransferComponent,
-    TransferHomeComponent
-  ],
-  imports: [
-    CommonModule,
-    TransferRoutingModule,
-    FormsModule,
-    MaterialModule,
-    ReactiveFormsModule
-  ]
+    declarations: [
+        CreateTransferComponent,
+        GetTransferComponent,
+        TransferHomeComponent
+    ],
+    imports: [
+        CommonModule,
+        TransferRoutingModule,
+        FormsModule,
+        MaterialModule,
+        ReactiveFormsModule,
+        SharedModule
+    ]
 })
 export class TransferModule { }

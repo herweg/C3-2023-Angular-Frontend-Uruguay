@@ -15,8 +15,8 @@ export class PostDepositComponent {
     private fb: FormBuilder) { }
 
   depositForm = this.fb.group({
-    id: new FormControl('', Validators.required),
-    amount: new FormControl('', Validators.required)
+    id: ['', Validators.required],
+    amount: ['', Validators.required],
   })
 
   postDeposit() {

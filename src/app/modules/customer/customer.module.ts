@@ -6,6 +6,7 @@ import { CustomerRoutingModule } from './customer-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material/material.module';
 import { GetOneCustomerComponent } from './get-one-customer/get-one-customer.component';
+import { SharedModule } from '../../shared/shared.module';
 
 
 
@@ -20,7 +21,8 @@ import { GetOneCustomerComponent } from './get-one-customer/get-one-customer.com
     CustomerRoutingModule,
     FormsModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class CustomerModule { }
