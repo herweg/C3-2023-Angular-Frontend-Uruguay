@@ -55,6 +55,7 @@ export class LoginService {
       .post(`${this.url}/signup`, signUp, { responseType: 'text' })
       .subscribe(token => {
         localStorage.setItem("token", token)
+        this.setUserLogged(true)
       })
   }
 
@@ -65,6 +66,7 @@ export class LoginService {
       .subscribe(token => {
         if (token) {
           localStorage.removeItem("token")
+          this.setUserLogged(false)
         }
       })
   }
