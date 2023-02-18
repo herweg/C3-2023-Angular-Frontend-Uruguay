@@ -22,5 +22,4 @@ export class SingOutComponent {
       })
       .catch(e => console.log(e))
   }
-
 }

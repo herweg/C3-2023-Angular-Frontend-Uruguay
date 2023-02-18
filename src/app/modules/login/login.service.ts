@@ -5,7 +5,6 @@ import { SignUpModel } from 'src/app/interfaces/signup.interface';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider } from '@angular/fire/auth';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
-import { FireSignIn } from 'src/app/interfaces/firesignin.interface';
 
 @Injectable({
   providedIn: 'root'
